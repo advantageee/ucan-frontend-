@@ -33,6 +33,11 @@ export const calculate = (data: any) => {
         capacity: Math.random() * 200,
         safetyFactor: 1 + Math.random(),
         status: Math.random() > 0.5 ? "Pass" : "Fail",
+        data: [
+          { name: 'Tension', value: Math.random() * 100 },
+          { name: 'Shear', value: Math.random() * 100 },
+          { name: 'Combined', value: Math.random() * 100 },
+        ]
       });
     }, 1000);
   });
