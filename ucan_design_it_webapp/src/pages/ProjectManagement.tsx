@@ -1,12 +1,19 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getProjects } from "../services/api";
 
-const projects = [
-  { id: 1, name: "Project Alpha" },
-  { id: 2, name: "Project Beta" },
-  { id: 3, name: "Project Gamma" },
-];
+interface Project {
+  id: number;
+  name: string;
+}
 
 const ProjectManagement = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    getProjects().then((data) => setProjects(data as Project[]));
+  }, []);
+
   return (
     <div>
       <h2>Project Management</h2>
